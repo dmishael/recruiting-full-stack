@@ -1,14 +1,32 @@
-import React from 'react'
+/* eslint-disable indent */
+import React, { useState, useEffect, Component } from 'react'
+import "whatwg-fetch"
 
-// NOTE: ESLint will enforce Táve coding standards:
-// https://github.com/tave/javascript/  Goodbye semicolons!
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.getPHP = this.getPHP.bind(this);
+  }
 
-function App() {
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  )
+  getPHP() {
+    fetch("http://localhost:8000/webservice.php", {
+      method: "GET",
+      headers: {},
+      body: JSON.stringify({
+        content: "test1"
+      })
+    })
+      .then(res => res.json())
+      .then(response => {
+        console.log("response:");
+        console.log(response);
+      })
+
+
+  render() {
+    return <div>hi</div>
+  }
+}
 }
 
 export default App

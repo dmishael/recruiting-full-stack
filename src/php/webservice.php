@@ -84,6 +84,6 @@ $decodedData = json_decode($jsonData, true);
 
 $response = json_encode($decodedData);
 
-echo $response;
+echo $response
 
 ?>
